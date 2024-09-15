@@ -1,0 +1,349 @@
+body {
+	background: aliceblue;
+}
+
+.ui.main.container {
+	background: #fff;
+	max-width: 1600px !important;
+	min-height: 100vh;
+	width: 100% !important;
+	margin: 0 auto !important;	
+  
+  * {
+	  font-size: 1.2rem !important;
+	  line-height: 1.5 !important;
+  }
+
+  i {
+  	line-height: 1 !important;
+  }
+
+  .panel {
+    display: block;
+    position: relative;
+    background: #f9f9f9;
+    padding-top: 80px;
+
+    &:after {
+		  content: '';
+		  position: absolute;
+		  top: calc(100% - 30px);
+		  left: 0;
+		  width: 100%;
+		  height: 50px;
+		  background: #f9f9f9;
+		  rotate: -1.5deg;
+		}
+
+    .top-menu {
+	    height: 80px;
+	    background: rgb(255 255 255 / 79%);
+	    position: fixed;
+	    top: 0;
+	    width: 100%;
+	    z-index: 1;
+	    backdrop-filter: blur(5px);
+
+		  .ui.menu {
+			  max-width: 1100px;
+			  margin: auto;
+			  height: 100%;
+
+			  .item.logo {
+				  width: 200px;
+
+				  img {
+					  width: 100%;
+					}
+				}
+			}
+
+			.right .item {
+		    background: #fff;
+		    font-weight: 600;
+		    font-size: 1.2rem !important;
+		    padding: 0.5rem 1.5rem;
+		    box-shadow: 0 0 0 1px #00000038;
+		    border-radius: 1rem;
+		    min-width: 130px;
+		    text-align: center;
+		    align-items: center;
+		    justify-content: center;
+		    text-transform: uppercase;
+
+		    &:hover {
+					font-weight: 700;
+					color: tomato;
+		    }
+			}
+		}
+
+		.container {
+		    width: 100%;
+		    padding: 3rem 2rem;
+
+		    .content {
+				    display: flex;
+				    max-width: 1000px;
+				    margin: auto;
+				    align-items: center;
+
+				    > div {
+						    flex: 1;
+						}
+
+						.join {
+					    padding: 1rem 1.5rem;
+					    display: table;
+					    color: #000;
+					    background: #ffd863;
+					    margin-top: 2rem;
+					    font-size: 1.3rem !important;
+					    font-weight: 600;
+					    border-radius: 0.75rem;
+						}
+
+				    .header {
+				    		color: #fff;
+
+					    	.heading {
+							    font-size: 2.8rem !important;
+							    font-weight: 700;
+							    text-transform: capitalize;
+							    line-height: 1.2 !important;
+							    -webkit-background-clip: text;
+							    -webkit-text-fill-color: transparent;
+							    background-image: linear-gradient(45deg, #3475d5, #c5556f, #00faff);
+								}
+
+								.subheading {
+								    font-size: 1.8rem !important;
+								    margin-top: 1rem;
+								    color: #6e6e6e;
+								}
+				    }
+				}
+
+				.thumb {
+					margin-left: 2rem;
+
+						img {
+						    width: 100%;
+						}
+				}
+		}
+  }
+
+  .divider {
+		max-width: 300px;
+		border-bottom: 2rem dotted #001433;
+		margin: 4rem auto;
+  }
+
+  > .section {
+  	position: relative;
+
+  	&:not(.fourth) {
+  		padding-bottom: 2rem;
+
+  		&:after {
+			  content: '';
+			  position: absolute;
+			  bottom: 0;
+			  height: 1rem;
+			  background: #f3f3f3;
+			  width: 10%;
+			  left: 45%;
+			  border-radius: 100px;
+			}
+  	}
+
+  	.wrapper {
+  		display: flex;
+	  	align-items: center;
+	    max-width: 1150px;
+	    margin: 2rem auto;
+	  }
+
+	  &.second, &.fourth {
+	  	max-width: initial;
+
+    	img {
+    		border-radius: 500px;
+    		background: #fff;
+    	}
+	  }
+
+	 	&.third {
+	 		margin-bottom: 4rem !important;
+	 	}
+
+	 	&.fourth {
+	 		margin-bottom: 0 !important;
+	 	}
+
+  	> div, .wrapper > div {
+  		flex: 1;
+  	}
+
+  	.image {
+  		max-width: 400px;
+  		display: table;
+  		width: 100%;
+
+  		img {
+  			width: 100%;
+  			height: 100%;
+  		}
+  	}
+  	
+  	.content {
+
+  	}
+
+  	.header {
+	    font-size: 2rem !important;
+	    margin-bottom: 1rem;
+	    font-weight: 500;
+	    text-transform: capitalize;
+  	}
+
+  	.description {
+  		&, * {
+  			font-size: 1.4rem !important;
+    		color: #4c5762;
+  		}
+
+  		.examples {
+  			div {
+				  margin-top: .5rem;
+				  font-size: 1.2rem !important;
+				}
+
+				.title {
+					padding: 1rem;
+					background: #003154;
+					color: #fff;
+					display: table;
+					margin-bottom: 1.5rem;
+					border-radius: 1rem;
+					font-weight: 600;
+				}
+
+				span {
+				  font-weight: 600;
+				  color: #242424;
+				}
+  		}
+  	}
+  }
+}
+
+#footer {
+	background: linear-gradient(45deg, #ff4f67, #8d5dff);
+	-webkit-mask-image: url(/assets/images/affiliate-top-mask.svg);
+	-webkit-mask-position: top center;
+	-webkit-mask-size: cover;
+	width: 100%;
+	padding-top: 10rem !important;
+	z-index: 1;
+	min-height: 300px;
+	color: #fff;
+	padding-bottom: 1rem !important;
+
+  .heading {
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    text-align: center;
+
+  	.header {
+	    font-size: 4rem !important;
+	    font-weight: 700;
+  	}
+
+  	.description {
+	    font-size: 1.5rem !important;
+	    max-width: 700px;
+	    margin: 0.5rem auto 0;
+	    width: 100%;
+  	}
+  }
+
+  .footer-menu {
+  	display: flex;
+    justify-content: center;
+
+  	.ui.menu {
+  		> .item {
+			  color: #fff;
+
+			  &:hover {
+			  	color: #fff;
+			  }
+			}
+	  }
+
+	  .dropdown .menu {
+		    box-shadow: none !important;
+		    border: none !important;
+		    border-radius: .75rem !important;
+		    overflow: hidden;
+
+		    .header {
+		        margin: 0 !important;
+		        padding: .75rem 1rem !important;
+		        background: #ffff51;
+		        color: #000 !important;
+		        font-size: 1rem !important;
+		    }
+
+		    .item:not(.header) {
+		        text-transform: capitalize;
+		        width: 100%;
+		        margin: 0 !important;
+		        border-radius: 0 !important;
+		        padding: .75rem 1rem !important;
+
+		        &:hover {
+		            background: transparent !important;
+		            font-weight: 600;
+		        }
+		    }
+		}
+  }
+}
+
+
+@media (max-width: 1440px) {
+	.ui.main.container {
+		.section, .section .wrapper {
+			display: block;
+		}
+
+		.section .wrapper {
+			margin: 0;
+		}
+
+		.section {
+			padding: 2rem;
+
+			.content {
+				margin: 0;
+			}
+
+			&.middle {
+				.image {
+					display: none;
+				}
+			}
+
+			&.top {
+				margin-top: 0;
+			}
+		}
+	}
+
+	#footer {
+		padding: 2rem 2rem 0 !important;
+	}
+}

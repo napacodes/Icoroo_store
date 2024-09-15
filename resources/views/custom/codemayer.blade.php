@@ -1,0 +1,1 @@
+@json(request()->all())

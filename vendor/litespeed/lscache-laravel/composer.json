@@ -1,0 +1,30 @@
+{
+    "name": "litespeed/lscache-laravel",
+    "description": "LSCache Implementation for Laravel",
+    "require": {
+        "illuminate/support": "^5.1|^6|^7|^8|^9|^10.0|^11.0"
+    },
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Lucas Rolff",
+            "email": "lrolff@litespeedtech.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Litespeed\\LSCache\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Litespeed\\LSCache\\LSCacheServiceProvider"
+            ],
+            "aliases": {
+                "LSCache": "Litespeed\\LSCache\\LSCache"
+            }
+        }
+    }
+}

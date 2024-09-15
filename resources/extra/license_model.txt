@@ -1,0 +1,31 @@
+LICENSE CERTIFICATE : {APP_NAME} Market
+==============================================
+
+This document certifies the purchase of :
+{LICENSE_NAME}
+as defined in the standard terms and conditions on {APP_NAME} Market.
+
+Licensor :
+{APP_OWNER}
+
+Licensee :
+{BUYER_EMAIL_ADDRESS}
+
+Item Title :
+{ITEM_NAME}
+
+Item URL :
+{ITEM_URL}
+
+Item ID :
+{ITEM_ID}
+
+Item License key :
+{LICENSE_KEY}
+
+Purchase Date :
+{PURCHASE_DATE}
+
+For any queries related to this document or license please contact Help Team via {CONTACT_PAGE_URL}
+
+==============================================
