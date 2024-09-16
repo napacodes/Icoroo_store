@@ -87,23 +87,7 @@
 		// Create checkout session
 		public function create_checkout_session(array $params, $user = null)
 		{
-			/*
-				API DOC URL : https://stripe.com/docs/api/checkout/sessions/create
-				------------------------------------------------------------------
-				curl https://api.stripe.com/v1/checkout/sessions \
-				  -u sk_test_WlDtXCea4H8cKRFk7bgzW3xq00hcfmF73r: \
-				  -d customer=cus_123 \
-				  -d payment_method_types[]=card \
-				  -d line_items[][name]=T-shirt \
-				  -d line_items[][description]="Comfortable cotton t-shirt" \
-				  -d line_items[][images][]="https://example.com/t-shirt.png" \
-				  -d line_items[][amount]=500 \
-				  -d line_items[][currency]=eur \
-				  -d line_items[][quantity]=1 \
-				  -d success_url="https://example.com/success" \
-				  -d cancel_url="https://example.com/cancel"
-				------------------------------------------------------------------
-			*/
+			
 
 			extract($params);
 
@@ -254,13 +238,7 @@
 		// Retrieve checkout session
 		public function get_checkout_session(string $cs = null)
 		{
-			/*
-				API DOC URL : https://stripe.com/docs/api/checkout/sessions/retrieve
-				--------------------------------------------------------------------
-				curl https://api.stripe.com/v1/checkout/sessions/cs_test_hnVLmJSlnLAeHlPXDMAh0gGbDEfjYEucRfIbMlKdeaHSZGHnE2mrCY4O \
-					-u sk_test_WlDtXCea4H8cKRFk7bgzW3xq00hcfmF73r:
-				--------------------------------------------------------------------
-			*/
+		
 
 			$cs OR die();
 
@@ -289,14 +267,7 @@
 		// Retrieve paymeny intents
 		public function get_payment_intents(string $pi_id = "")
 		{
-			/*
-				API DOC URL : https://stripe.com/docs/api/payment_intents/retrieve
-				--------------------------------------------------------------------
-				curl https://api.stripe.com/v1/payment_intents/pi_1FE4IjHCAt5CXcX72ncX42q9 \
-				  -u sk_test_WlDtXCea4H8cKRFk7bgzW3xq00hcfmF73r:
-				--------------------------------------------------------------------
-			*/
-
+			
 			$pi_id OR die();
 
 			$ch = curl_init();
@@ -323,13 +294,7 @@
 		// Retrieve customer
 		public function get_customer($cus)
 		{
-			/*
-				API DOC URL : https://stripe.com/docs/api/customers/retrieve
-				--------------------------------------------------------------------
-				curl https://api.stripe.com/v1/customers/cus_Flz46Wq3HGZFTJ \
-				  -u sk_test_WlDtXCea4H8cKRFk7bgzW3xq00hcfmF73r:
-				--------------------------------------------------------------------
-			*/
+			
 
 			$cus OR die();
 
@@ -358,17 +323,7 @@
 		// Create a charge 
 		public function create_charge($stripeToken)
 		{
-			/*
-				API DOC URL : https://stripe.com/docs/api/charges/create
-				-----------------------------------------------------
-				curl https://api.stripe.com/v1/charges \
-				  -u sk_test_WlDtXCea4H8cKRFk7bgzW3xq00hcfmF73r: \
-				  -d amount=2000 \
-				  -d currency=eur \
-				  -d source=tok_amex \
-				  -d description="Charge for example@example.com"
-				-----------------------------------------------------
-			*/
+			
 
 			$coupon 	= json_decode($this->create_coupon(null, 9, "once"));
 			$customer = json_decode($this->create_customer($stripeToken, null, $coupon->id));
@@ -406,16 +361,7 @@
 		// Create a customer
 		public function create_customer($source = null, $description = "", $coupon = null, $tax_id_data = [])
 		{
-			/*
-				API DOC URL : https://stripe.com/docs/api/customers/create
-				---------------------------------------------------------
-				curl https://api.stripe.com/v1/customers \
-				  -u sk_test_WlDtXCea4H8cKRFk7bgzW3xq00hcfmF73r: \
-				  -d description="Customer for jenny.rosen@example.com" \
-				  -d source=tok_amex
-				  -d coupn=qsfsfqsf
-				---------------------------------------------------------
-			*/
+			
 
 			$payload = [];
 
@@ -459,18 +405,7 @@
 		// Create a Tax
 		public function create_tax($display_name, $description = "", $percentage = 0, $jurisdiction = "", $inclusive = false)
 		{
-			/*
-				API DOC URL : https://stripe.com/docs/api/tax_rates/create
-				------------------------------------------------------
-				curl https://api.stripe.com/v1/tax_rates \
-				  -u sk_test_WlDtXCea4H8cKRFk7bgzW3xq00hcfmF73r: \
-				  -d display_name=VAT \
-				  -d description="VAT Germany" \
-				  -d jurisdiction=DE \
-				  -d percentage="19.0" \
-				  -d inclusive=false
-				------------------------------------------------------
-			*/
+			
 
 			$payload = [
 				"display_name" => $display_name,
@@ -506,15 +441,7 @@
 		// Create a coupon
 		public function create_coupon($amount_off = null, $percent_off = null, $duration = "once")
 		{
-			/*
-				API DOC URL : https://stripe.com/docs/api/coupons/create
-				----------------------------------------------------
-				curl https://api.stripe.com/v1/coupons \
-				  -u sk_test_WlDtXCea4H8cKRFk7bgzW3xq00hcfmF73r: \
-				  -d percent_off=5 \
-				  -d duration=once
-				----------------------------------------------------
-			*/
+			
 
 			$payload = ["duration" => $duration];
 
@@ -549,17 +476,7 @@
 		// Create a card token
 		public function create_card_token(array $card)
 		{
-			/*
-				API DOC URL : https://stripe.com/docs/api/tokens/create_card
-				------------------------------------------------------------
-				curl https://api.stripe.com/v1/tokens \
-				  -u sk_test_WlDtXCea4H8cKRFk7bgzW3xq00hcfmF73r: \
-				  -d card[number]=4000002500003155 \
-				  -d card[exp_month]=12 \
-				  -d card[exp_year]=2050 \
-				  -d card[cvc]=123
-				------------------------------------------------------------
-			*/
+			
 
 			$payload = [
 				"number" => $card["number"] ?? null,
@@ -594,17 +511,7 @@
 		// Create payment intents
 		public function create_payment_intents($stripeToken)
 		{
-			/*
-				API DOC URL : https://stripe.com/docs/api/payment_intents/create
-				----------------------------------------------------------------
-				curl https://api.stripe.com/v1/payment_intents \
-				  -u sk_test_WlDtXCea4H8cKRFk7bgzW3xq00hcfmF73r: \
-				  -X POST \
-				  -d amount=33.58 \
-				  -d currency=usd \
-				  -d payment_method_types[]=card
-				----------------------------------------------------------------
-			*/
+			
 
 			$coupon 	= json_decode($this->create_coupon(null, 5, "once"));
 			$customer = json_decode($this->create_customer($stripeToken, null, $coupon->id));
@@ -646,14 +553,7 @@
 		// Delete a customer
 		public function delete_customer($customer_id)
 		{
-			/*
-				API DOC URL : https://stripe.com/docs/api/customers/delete
-				----------------------------------------------------------
-				curl https://api.stripe.com/v1/customers/cus_FkJ3U2SRoptyhl \
-				  -u sk_test_WlDtXCea4H8cKRFk7bgzW3xq00hcfmF73r: \
-				  -X DELETE
-				----------------------------------------------------------
-			*/
+			
 
 			$headers = [
 				"Authorization: Bearer " . config("payments_gateways.{$this->name}.secret_id")
@@ -678,13 +578,7 @@
 
 		public function get_balance_transaction(string $txn)
 		{
-			/*
-				API DOC URL : https://stripe.com/docs/api/balance/balance_retrieve
-				------------------------------------------------------------------
-				curl https://api.stripe.com/v1/balance_transactions/txn_1FJCmcHCAt5CXcX7aUqGNqx2 \
-				  -u sk_test_WlDtXCea4H8cKRFk7bgzW3xq00hcfmF73r:
-  			------------------------------------------------------------------
-			*/
+			
   		
   		$headers = [
 				"Authorization: Bearer " . config("payments_gateways.{$this->name}.secret_id")
@@ -708,14 +602,7 @@
 
 		public function refund_transaction(string $charge, float $amount = 0)
 		{
-			/*
-				API DOC URL : https://stripe.com/docs/api/refunds/create
-				------------------------------------------------------------------
-				curl https://api.stripe.com/v1/refunds \
-				  -u sk_test_WlDtXCea4H8cKRFk7bgzW3xq00hcfmF73r: \
-				  -d charge=ch_1FDZiGHCAt5CXcX7YYow7zS4
-  			------------------------------------------------------------------
-			*/
+			
   		
   		$headers = [
   			"Content-Type: application/x-www-form-urlencoded",
@@ -748,17 +635,7 @@
 
 		public function create_webhook()
 		{
-			/*
-			Doc : https://stripe.com/docs/api/webhook_endpoints/create
-			----------------------------------------------------------
-			curl https://api.stripe.com/v1/webhook_endpoints \
-			  -u sk_test_4eC39HqLyjWDarjtT1zdp7dc: \
-			  -d url="https://example.com/my/webhook/endpoint" \
-			  -d "enabled_events[]"="charge.failed" \
-			  -d "enabled_events[]"="charge.succeeded"
-
-			*/
-		
+				
   		$headers = [
   			"Content-Type: application/x-www-form-urlencoded",
 				"Authorization: Bearer " . config("payments_gateways.{$this->name}.secret_id")
@@ -797,12 +674,7 @@
 
 		public function get_webhook(string $webhook_id)
 		{
-			/*
-				Docc : https://stripe.com/docs/api/webhook_endpoints/retrieve
-				--------------------------------------------------------------
-				curl https://api.stripe.com/v1/webhook_endpoints/we_1IWw0Q2eZvKYlo2C2nYid3Rw \
-				-u sk_test_4eC39HqLyjWDarjtT1zdp7dc:
-			*/
+			
 
 			$headers = [
   			"Content-Type: application/x-www-form-urlencoded",
@@ -833,13 +705,7 @@
 
 		public function delete_webhook($webhook)
 		{
-			/*
-				Docc : https://stripe.com/docs/api/webhook_endpoints/delete
-				--------------------------------------------------------------
-				curl https://api.stripe.com/v1/webhook_endpoints/we_1IWw0Q2eZvKYlo2C2nYid3Rw \
-			  -u sk_test_4eC39HqLyjWDarjtT1zdp7dc: \
-			  -X DELETE
-			*/
+			
 
 			$headers = [
   			"Content-Type: application/x-www-form-urlencoded",
@@ -873,16 +739,7 @@
 
 		public function list_webhooks($limit = 100, $starting_after = null)
 		{
-			/*
-				Docc : https://stripe.com/docs/api/webhook_endpoints/delete
-				--------------------------------------------------------------
-				curl https://api.stripe.com/v1/webhook_endpoints \
-			  -u sk_test_4eC39HqLyjWDarjtT1zdp7dc: \
-			  -d limit=3 \
-			  -G
-			*/
-
-
+			
 
 			$headers = [
   			"Content-Type: application/x-www-form-urlencoded",

@@ -193,11 +193,7 @@
 
 		public static function direct_download(string $item_id, string $file_name, bool $download = true)
 		{
-			/*
-			curl -X POST https://content.dropboxapi.com/2/files/download \
-			--header "Authorization: Bearer tzAAeuPMwmAAAAAAAAAAIcKzpYGVbjVhV4o1U3j2yvS3kT2afYQYet6vuFi0awqd" \
-			--header "Dropbox-API-Arg: {\"path\": \"id:dJadkgMO-9AAAAAAAAAAGQ\"}"
-			*/
+			
 
     	if(!$dropbox_access_token = config('filehosts.dropbox.access_token'))
 			{
@@ -318,8 +314,6 @@
 
 		public static function get_current_user(Request $request)
 		{
-			/*curl -X POST https://api.dropboxapi.com/2/users/get_current_account \
-    	--header "Authorization: Bearer tzAAeuPMwmAAAAAAAAAAIz42oagQNsiNiFys9mK6u5hFlJr8yUY4Z0BxoPGiZ3_b"*/
 
 			$headers = ["Authorization: Bearer {$request->access_token}",
 									"Content-Type: application/json; charset=utf-8"];
@@ -348,12 +342,7 @@
 
 		public static function get_folder_metadata($folder_id = null)
 		{
-			/*
-				curl -s -X POST https://api.dropboxapi.com/2/files/get_metadata \
-		    --header "Authorization: Bearer tzAAeuPMwmAAAAAAAAAASenSfIluQWture1hVeQ-MmMyYfeBhyZBCd7thxrx-WaS" \
-		    --header "Content-Type: application/json" \
-		    --data "{\"path\": \"id:dJadkgMO-9AAAAAAAAAKvA\",\"include_media_info\": false,\"include_deleted\": false,\"include_has_explicit_shared_members\": false}"
-			*/
+			
 
 		  if(is_null($folder_id)) abort(404);
 
@@ -405,13 +394,7 @@
 
 		public static function get_shared_folder_metadata($shared_folder_id = null)
 		{
-			/*
-				curl -X POST https://api.dropboxapi.com/2/sharing/get_folder_metadata \
-		    --header "Authorization: Bearer tzAAeuPMwmAAAAAAAAAAVqbyWdI5c6Ny78tvjlZn6W5QSzCyWSloTJoPJqe7O8Vm" \
-		    --header "Content-Type: application/json" \
-		    --data "{\"shared_folder_id\": \"7099883200\",\"actions\": []}"
-			*/
-
+			
 		  if(is_null($shared_folder_id)) abort(404);
 
 			if(!$dropbox_access_token = config('filehosts.dropbox.access_token'))
